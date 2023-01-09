@@ -18,7 +18,7 @@ jobs:
         workingDirectory: '$(System.DefaultWorkingDirectory)'
         nugetConfigPath: '$(System.DefaultWorkingDirectory)\NuGet.config'
 
-    - task: PowerShell@2
+    - task: NuGetCommand@2
       inputs:
         targetType: 'inline'
         script: |
