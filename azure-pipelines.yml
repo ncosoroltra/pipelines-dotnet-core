@@ -1,19 +1,27 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
+# This is a YAML-formatted pipeline.
+# You can find more information on how to write pipelines at
 # https://aka.ms/yaml
 
 trigger:
-- master
+  - push
 
-pool:
-  vmImage: ubuntu-latest
+jobs:
+  - job: Deployment
+    pool:
+      vmImage: 'windows-latest'
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+    steps:
+    - task: UseChocolatey@0
+      inputs:
+        packageType: 'exe'
+        packageName: 'ASDeploymentWizard'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+    - task: PowerShell@2
+      inputs:
+        targetType: 'inline'
+        script: |
+          # Set up the Deployment Wizard command
+          $command = 'ASDeploymentWizard.exe /a "$(System.DefaultWorkingDirectory)\Model.asdatabase" /p "Partitions=True;Roles=True"'
+
+          # Run the Deployment Wizard
+          Invoke-Expression $command
