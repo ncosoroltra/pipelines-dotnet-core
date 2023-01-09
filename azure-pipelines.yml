@@ -18,10 +18,4 @@ jobs:
         workingDirectory: '$(System.DefaultWorkingDirectory)'
         nugetConfigPath: '$(System.DefaultWorkingDirectory)\NuGet.config'
 
-        versionSpec: 
-    - task: NugetCommand@2
-      inputs:
-        command: 'install'
-        packagesToInstall: 'ASDeploymentWizard'
-        workingDirectory: '$(System.DefaultWorkingDirectory)'
-        nugetConfigPath: '$(System.DefaultWorkingDirectory)\NuGet.config'
+        versionSpec:
