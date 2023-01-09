@@ -23,7 +23,7 @@ jobs:
         targetType: 'inline'
         script: |
           # Set up the Deployment Wizard command
-          $command = 'ASDeploymentWizard.exe /a "$(System.DefaultWorkingDirectory)\Model.asdatabase" /p "Partitions=True;Roles=True"'
+          $command = 'ASDeploymentWizard.exe /a "$(System.DefaultWorkingDirectory)\Model.asdatabase" /p "Partitions=True;Roles=True" /o'
 
           # Run the Deployment Wizard
           Invoke-Expression $command
