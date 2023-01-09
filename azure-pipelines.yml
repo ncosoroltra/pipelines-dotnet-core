@@ -15,13 +15,3 @@ jobs:
       inputs:
         packageType: 'exe'
         packageName: 'ASDeploymentWizard'
-
-    - task: PowerShell@2
-      inputs:
-        targetType: 'inline'
-        script: |
-          # Set up the Deployment Wizard command
-          $command = 'ASDeploymentWizard.exe /a "$(System.DefaultWorkingDirectory)\Model.asdatabase" /p "Partitions=True;Roles=True"'
-
-          # Run the Deployment Wizard
-          Invoke-Expression $command
