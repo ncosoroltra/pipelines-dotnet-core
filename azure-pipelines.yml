@@ -18,8 +18,6 @@ jobs:
         workingDirectory: '$(System.DefaultWorkingDirectory)'
         nugetConfigPath: '$(System.DefaultWorkingDirectory)\NuGet.config'
 
-        versionSpec:'1.0.0'
-
     - task: PowerShell@2
       inputs:
         targetType: 'inline'
