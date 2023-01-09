@@ -11,7 +11,9 @@ jobs:
       vmImage: 'windows-latest'
 
     steps:
-    - task: UseChocolatey@0
+    - task: NugetCommand@2
       inputs:
-        packageType: 'exe'
-        packageName: 'ASDeploymentWizard'
+        command: 'install'
+        packagesToInstall: 'ASDeploymentWizard'
+        workingDirectory: '$(System.DefaultWorkingDirectory)'
+        nugetConfigPath: '$(System.DefaultWorkingDirectory)\NuGet.config'
