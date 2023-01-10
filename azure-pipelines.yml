@@ -27,3 +27,10 @@ jobs:
 
           # Run the Deployment Wizard
           Invoke-Expression $command
+      
+    - task: NuGetCommand@2
+      inputs:
+        targetType: 'inline'
+        script: |
+         $parameters = "/p:Server=localhost;Database=AdventureWorks2017;ServerMode=Tabular;TabularModelFolder='';TabularModelName='';ProcessOption=DoNotProcess"
+         & "$env:C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Microsoft SQL Server Tools 18\Analysis Services Deployment Wizard 18.lnk" /s:$deploymentOptionsFile $parameters
