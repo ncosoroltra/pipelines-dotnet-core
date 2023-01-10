@@ -7,18 +7,10 @@ trigger:
 
 jobs:
   - job: Deployment
-pool:
-  name: Default
+    pool:
+      name: 'Default'
 
-  steps:
-    - task: CopyFiles@2
-      displayName: 'Copy text file to local path'
-      inputs:
-        sourceFolder: '$(Agent.BuildDirectory)
-        targetFolder: 'C:\Agents'
-        includeContents: |
-        /Model.asdatabase
-
+    steps:
     - task: NuGetToolInstaller@1
       inputs:
         command: 'install'
