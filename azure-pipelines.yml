@@ -10,7 +10,7 @@ jobs:
 pool:
   name: Default
 
-    steps:
+  steps:
 
     - script: echo Hello, world!
       displayName: 'Run a one-line script'
