@@ -33,5 +33,5 @@ jobs:
         targetType: 'inline'
         script: |
           $deploymentOptionsFile = "$(System.DefaultWorkingDirectory)\Model.deploymentoptions"
-          $parameters = "/p:Server=localhost;Database=AdventureWorks2017;ServerMode=Tabular;TabularModelFolder='';TabularModelName='';ProcessOption=DoNotProcess"
+          $parameters = "/p:Server=DESKTOP-9ADMLEA;Database=AdventureWorks2017;ProcessOption=DoNotProcess"
           & "$env:C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Microsoft SQL Server Tools 18\Analysis Services Deployment Wizard 18.lnk" /s:$deploymentOptionsFile $parameters
